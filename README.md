@@ -1,0 +1,2 @@
+# api
+Prisma GraphQL API
