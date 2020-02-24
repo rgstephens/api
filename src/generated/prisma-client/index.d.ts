@@ -323,6 +323,7 @@ export interface UserWhereInput {
 export type UserWhereUniqueInput = AtLeastOne<{
   id: Maybe<ID_Input>;
   email?: Maybe<String>;
+  username?: Maybe<String>;
 }>;
 
 export interface SnakeCreateInput {

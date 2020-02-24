@@ -1,6 +1,6 @@
 type Query {
   info: String!
-  snakes: [Snake!]!
+  snakes(filter: String): [Snake!]!
 }
 
 type Mutation {

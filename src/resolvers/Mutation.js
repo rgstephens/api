@@ -3,6 +3,15 @@ const jwt = require('jsonwebtoken')
 const { APP_SECRET, getUserId } = require('../utils')
 
 
+function snake(parent, args, context, info) {
+  const userId = getUserId(context)
+  return context.prisma.createSnake({
+    name: args.name,
+    description: args.description,
+    owner: { connect: { id: userId } },
+  })
+}
+
 async function signup(parent, args, context, info) {
   const password = await bcrypt.hash(args.password, 10)
   const user = await context.prisma.createUser({ ...args, password })
@@ -33,15 +42,6 @@ async function login(parent, args, context, info) {
     token,
     user,
   }
-}
-
-function snake(parent, args, context, info) {
-  const userId = getUserId(context)
-  return context.prisma.createSnake({
-    name: args.name,
-    description: args.description,
-    owner: { connect: { id: userId } },
-  })
 }
 
 
