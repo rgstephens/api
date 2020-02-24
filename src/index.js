@@ -7,7 +7,7 @@ const resolvers = {
   Query: {
     info: () => `This is the API of a Serpent Tracker`,
     snakes: (root, args, context, info) => {
-      return context.primsa.snakes();
+      return context.prisma.snakes();
     }
   },
   Mutation: {
