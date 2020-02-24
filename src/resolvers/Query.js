@@ -2,9 +2,6 @@ const { getUserId } = require('../utils')
 
 const Query = {
   snakes(parent, args, context) {
-    return context.prisma.snakes({ where })
-  },
-  snakes(parent, args, context) {
     const id = getUserId(context)
     const where = {
       owner: {
