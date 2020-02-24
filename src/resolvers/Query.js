@@ -7,7 +7,10 @@ async function snakes(parent, args, context, info) {
   } : {}
 
   const snakes = await context.prisma.snakes({
-    where
+    where,
+    skip: args.skip,
+    first: args.first,
+    orderBy: args.orderBy
   })
   return snakes
 }

@@ -1,6 +1,15 @@
 type Query {
   info: String!
-  snakes(filter: String): [Snake!]!
+  snakes(filter: String, skip: Int, first: Int, orderBy: SnakeOrderByInput): [Snake!]!
+}
+
+enum SnakeOrderByInput {
+  description_ASC
+  description_DESC
+  name_ASC
+  name_DESC
+  createdAt_ASC
+  createdAt_DESC
 }
 
 type Mutation {
@@ -14,6 +23,7 @@ type Snake {
   name: String
   description: String!
   owner: User
+  createdAt: String!
 }
 
 type AuthPayload {
