@@ -1,7 +1,9 @@
-function owner(parent, args, context) {
-  return context.prisma.snake({ id: parent.id }).owner()
+const Snake = {
+  owner: ({ id }, args, context) => {
+    return context.prisma.snake({ id }).owner()
+  },
 }
 
 module.exports = {
-  owner,
+  Snake,
 }

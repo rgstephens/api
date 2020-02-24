@@ -1,7 +1,9 @@
-function snakes(parent, args, context) {
-  return context.prisma.user({ id: parent.id }).snakes()
+const User = {
+  snakes: ({ id }, args, context) => {
+    return context.prisma.user({ id }).snakes()
+  },
 }
 
 module.exports = {
-  snakes,
+  User,
 }

@@ -1,20 +1,25 @@
-async function snakes(parent, args, context, info) {
-  const where = args.filter ? {
-    OR: [
-      { description_contains: args.filter },
-      { name_contains: args.filter },
-    ],
-  } : {}
+const { getUserId } = require('../utils')
 
-  const snakes = await context.prisma.snakes({
-    where,
-    skip: args.skip,
-    first: args.first,
-    orderBy: args.orderBy
-  })
-  return snakes
+const Query = {
+  snakes(parent, args, context) {
+    return context.prisma.snakes({ where })
+  },
+  snakes(parent, args, context) {
+    const id = getUserId(context)
+    const where = {
+      owner: {
+        id,
+      },
+    }
+    return context.prisma.snakes({ where })
+  },
+  snake(parent, { id }, context) {
+    return context.prisma.snake({ id })
+  },
+  me(parent, args, context) {
+    const id = getUserId(context)
+    return context.prisma.user({ id })
+  },
 }
 
-module.exports = {
-  snakes,
-}
+module.exports = { Query }
