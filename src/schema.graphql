@@ -5,10 +5,27 @@ type Query {
 
 type Mutation {
   snake(name: String, description: String!): Snake!
+  signup(email: String!, password: String!, firstName: String!, lastName: String!, username: String!): AuthPayload
+  login(email: String!, password: String!): AuthPayload
 }
 
 type Snake {
   id: ID!
   name: String
   description: String!
+  owner: User
+}
+
+type AuthPayload {
+  token: String
+  user: User
+}
+
+type User {
+  id: ID!
+  firstName: String!
+  lastName: String!
+  email: String!
+  username: String!
+  snakes: [Snake!]!
 }

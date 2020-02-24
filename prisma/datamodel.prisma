@@ -3,4 +3,15 @@ type Snake {
   createdAt: DateTime! @createdAt
   name: String
   description: String!
+  owner: User
+}
+
+type User {
+  id: ID! @id
+  firstName: String!
+  lastName: String!
+  email: String! @unique
+  username: String! @unique
+  password: String!
+  snakes: [Snake!]!
 }

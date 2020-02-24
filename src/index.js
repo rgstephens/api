@@ -2,27 +2,28 @@ const { GraphQLServer } = require("graphql-yoga");
 
 const { prisma } = require('./generated/prisma-client')
 
+const Query = require('./resolvers/Query')
+const Mutation = require('./resolvers/Mutation')
+const User = require('./resolvers/User')
+const Snake = require('./resolvers/Snake')
+
 
 const resolvers = {
-  Query: {
-    info: () => `This is the API of a Serpent Tracker`,
-    snakes: (root, args, context, info) => {
-      return context.prisma.snakes();
-    }
-  },
-  Mutation: {
-    snake: (root, args, context) => {
-      return context.prisma.createSnake({
-        name: args.name,
-        description: args.description
-      });
-    }
-  }
-};
+  Query,
+  Mutation,
+  User,
+  Snake
+}
 
 const server = new GraphQLServer({
-  typeDefs: "./src/schema.graphql",
+  typeDefs: './src/schema.graphql',
   resolvers,
-  context: { prisma },
-});
+  context: request => {
+    return {
+      ...request,
+      prisma,
+    }
+  },
+})
+
 server.start(() => console.log(`Server is running on http://localhost:4000`));
