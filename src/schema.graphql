@@ -1,0 +1,14 @@
+type Query {
+  info: String!
+  snakes: [Snake!]!
+}
+
+type Mutation {
+  snake(name: String, description: String!): Snake!
+}
+
+type Snake {
+  id: ID!
+  name: String
+  description: String!
+}

@@ -1,0 +1,6 @@
+type Snake {
+  id: ID! @id
+  createdAt: DateTime! @createdAt
+  name: String
+  description: String!
+}
