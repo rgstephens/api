@@ -4,7 +4,7 @@ Prisma GraphQL API for Serpent Tracker.  Work in progress still...
 # Local Setup Prisma
 From the root of the repo run `docker-compose up -d` after creating a `.env` file based off the `.env.example` in the repo.
 
-After this is up and running you go to the prisma folder and run
+After this is up and running you go to the database folder and run
 
 `export PRISMA_MANAGEMENT_API_SECRET=secretfromenv`
 

@@ -17,6 +17,8 @@ services:
             database: ${PG_DATABASE}
             user: ${PG_USERNAME}
             password: ${PG_PASSWORD}
+            migrations: true
+            ssl: ${DB_SSL:false}
   postgres:
     image: postgres:10.3
     restart: always

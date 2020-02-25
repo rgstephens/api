@@ -1,5 +1,5 @@
 # The HTTP endpoint for your Prisma API
-endpoint: http://localhost:4466
+endpoint: ${env:PRISMA_ENDPOINT}
 secret: ${env:PRISMA_MANAGEMENT_API_SECRET}
 
 # Points to the file that contains your datamodel
