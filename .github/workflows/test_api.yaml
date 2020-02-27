@@ -22,5 +22,4 @@ jobs:
           yarn install
       - name: Run tests
         run: |
-          ls -lah
-          yarn test
+          yarn ci
