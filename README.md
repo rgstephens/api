@@ -14,8 +14,4 @@ Now the Prisma Admin should be available at http://localhost:4466/_admin
 
 
 # Graphql Yoga
-Export the APP_SECRET used for the JWT signing:
-
-`export APP_SECRET=GraphQL-is-aw3some`
-
-Then you can start up the graphql yoga part with `node src/index.js` atm which will load that up at `http://localhost:4000`
+Then simply run `yarn install` to install dependencies and `yarn dev` to run in local mode.

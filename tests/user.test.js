@@ -13,7 +13,7 @@ test('Should get info back', async () => {
   })
 })
 
-// beforeEach(seedDatabase);
+beforeEach(seedDatabase);
 
 
 
@@ -26,6 +26,8 @@ test('Should get info back', async () => {
 //     mutation: createUser,
 //     variables,
 //   })
+
+//   console.log(data)
 
 //   const userExists = await prisma.exists.User({ id: data.createUser.user.id });
 //   expect(userExists).toBe(true);
