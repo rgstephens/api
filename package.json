@@ -31,10 +31,14 @@
     "start-dev": "env-cmd .env babel-node src/index.js",
     "dev": "nodemon --exec yarn start-dev --ext js,graphql",
     "prisma": "cd database && prisma deploy --env-file ../.env",
-    "test": "jest --watch --runInBand"
+    "test": "jest --watch --runInBand",
+    "ci": "jest tests"
   },
   "jest": {
     "globalSetup": "./tests/jest/globalSetup.js",
-    "globalTeardown": "./tests/jest/globalTeardown.js"
+    "globalTeardown": "./tests/jest/globalTeardown.js",
+    "modulePaths": [
+      "src"
+    ]
   }
 }
