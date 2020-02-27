@@ -1,7 +1,7 @@
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 
-import prisma from '../../src/prisma';
+import { prisma } from '../../src/generated/prisma-client'
 
 export const userOne = {
   input: {
@@ -17,14 +17,12 @@ export const userOne = {
 
 
 export const seedDatabase = async () => {
-  await prisma.mutation.deleteManyUsers();
+  await prisma.deleteManyUsers();
 
   // Create user one
-  userOne.user = await prisma.mutation.createUser({
+  userOne.user = await prisma.createUser({
     data: userOne.input,
   });
 
   userOne.jwt = jwt.sign({ userId: userOne.user.id }, process.env.AUTH_SECRET);
 };
-
-export { userOne, seedDatabase}
