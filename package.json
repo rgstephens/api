@@ -32,14 +32,11 @@
     "dev": "nodemon --exec yarn start-dev --ext js,graphql",
     "prisma": "cd database && prisma deploy --env-file ../.env",
     "test": "jest --watch --runInBand",
-    "ci": "jest tests"
+    "ci": "jest"
   },
   "jest": {
     "globalSetup": "./tests/jest/globalSetup.js",
     "globalTeardown": "./tests/jest/globalTeardown.js",
-    "roots": [
-      "src"
-    ],
     "modulePaths": [
       "src"
     ],

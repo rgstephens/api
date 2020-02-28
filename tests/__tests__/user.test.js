@@ -1,9 +1,9 @@
 import 'cross-fetch/polyfill';
 
-import { prisma } from '../src/generated/prisma-client'
-import { getClient } from './utils/getClient';
-import { createUser, getUsers, info, login, getProfile } from './utils/operations';
-import { seedDatabase, userOne } from './utils/seedDatabase';
+import { prisma } from '../../src/generated/prisma-client'
+import { getClient } from '../utils/getClient';
+import { createUser, getUsers, info, login, getProfile } from '../utils/operations';
+import { seedDatabase, userOne } from '../utils/seedDatabase';
 
 const client = getClient();
 
@@ -13,7 +13,7 @@ test('Should get info back', async () => {
   })
 })
 
-beforeEach(seedDatabase);
+// beforeEach(seedDatabase);
 
 
 
