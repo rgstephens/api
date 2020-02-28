@@ -23,4 +23,5 @@ jobs:
       - name: Run tests
         working-directory: ${{ github.workspace }}
         run: |
+          ls -lah
           yarn ci
