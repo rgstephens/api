@@ -38,13 +38,13 @@
     "globalSetup": "./tests/jest/globalSetup.js",
     "globalTeardown": "./tests/jest/globalTeardown.js",
     "roots": [
-      "src",
+      "src"
     ],
     "modulePaths": [
       "src"
     ],
     "moduleDirectories": [
       "node_modules"
-    ],
+    ]
   }
 }
